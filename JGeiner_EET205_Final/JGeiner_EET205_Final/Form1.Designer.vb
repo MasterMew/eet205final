@@ -51,7 +51,7 @@ Partial Class Form1
         Me.MallTemp.BackColor = System.Drawing.SystemColors.Control
         Me.MallTemp.Location = New System.Drawing.Point(491, 122)
         Me.MallTemp.Margin = New System.Windows.Forms.Padding(4)
-        Me.MallTemp.Maximum = 65
+        Me.MallTemp.Maximum = 66
         Me.MallTemp.Minimum = 25
         Me.MallTemp.Name = "MallTemp"
         Me.MallTemp.Size = New System.Drawing.Size(481, 98)

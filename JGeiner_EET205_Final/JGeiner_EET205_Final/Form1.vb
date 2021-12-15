@@ -37,6 +37,7 @@
                 'MessageBox.Show("Coms fail! Received: " & uC_dataint)
             End Try
             thermal = uC_dataint
+            MallTemp.Value = thermal
             TextBox1.Text = thermal
             uC_data = ""
         Else

@@ -18,7 +18,6 @@ b9 = 0
 
 
 
-
 output b.7, b.0, b.6, b.5, b.4, b.3, c.5,c.4, c.6
 
 symbol heartbeat = b.7
@@ -47,7 +46,7 @@ if emode = 1 then
 endif
 
 readadc 0, b0 'Read the photoresistor
-serout c.6, t9600_8, (b0)  
+ 
 
 'if dark lights on
 if b0 > 80 then
@@ -60,8 +59,9 @@ end if
 
 
 readadc 1, b1 'Read the thermistor
-
-serout c.6, t9600_8, (b1)
+'sertxd (#b1, cr, lf) 'for testing purposes
+serout c.6, t9600_8, ("T")
+serout c.6, t9600_8, (#b1)
 
 'if hot  run air
 if b1 > 55 then
