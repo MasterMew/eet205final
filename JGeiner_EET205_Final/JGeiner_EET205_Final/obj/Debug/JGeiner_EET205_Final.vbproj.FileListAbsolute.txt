@@ -10,3 +10,15 @@ D:\git\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_E
 D:\git\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.exe
 D:\git\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.xml
 D:\git\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.pdb
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\bin\Debug\JGeiner_EET205_Final.exe.config
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\bin\Debug\JGeiner_EET205_Final.exe
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\bin\Debug\JGeiner_EET205_Final.pdb
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\bin\Debug\JGeiner_EET205_Final.xml
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.vbproj.AssemblyReference.cache
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.Form1.resources
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.Resources.resources
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.vbproj.GenerateResource.cache
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.vbproj.CoreCompileInputs.cache
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.exe
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.xml
+C:\Users\jgeiner\Documents\gitRepos\eet205final\JGeiner_EET205_Final\JGeiner_EET205_Final\obj\Debug\JGeiner_EET205_Final.pdb

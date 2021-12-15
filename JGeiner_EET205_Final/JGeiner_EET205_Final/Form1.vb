@@ -1,5 +1,6 @@
 ﻿Public Class Form1
     Public uC_data As String
+    Public uC_dataint As Byte
     Public thermal As Integer
     Public light As String
 
@@ -25,28 +26,41 @@
     End Sub
 
     Private Sub DataReceivedHandler(Sender As Object, e As System.IO.Ports.SerialDataReceivedEventArgs)
-        Try
+        If uC_data = "T" Then
 
-            Do
-                uC_data = ChrW(SerialPort1.ReadChar())
-            Loop Until SerialPort1.BytesToRead = 0
+            Try
+                Do
+                    uC_dataint = SerialPort1.ReadByte()
+                Loop Until SerialPort1.BytesToRead = 0
 
-        Catch ex As Exception
-            MessageBox.Show("Coms fail! Received: " & uC_data)
-        End Try
+            Catch ex As Exception
+                'MessageBox.Show("Coms fail! Received: " & uC_dataint)
+            End Try
+            thermal = uC_dataint
+            TextBox1.Text = thermal
+            uC_data = ""
+        Else
 
-        If IsNumeric(uC_data) = True Then
-            thermal = uC_data
-        End If
-        If IsNumeric(uC_data) = False Then
+            Try
+
+                Do
+                    uC_data = ChrW(SerialPort1.ReadChar())
+                Loop Until SerialPort1.BytesToRead = 0
+
+            Catch ex As Exception
+                MessageBox.Show("Coms fail! Received: " & uC_data)
+            End Try
+
             light = uC_data
+
             If light = "A" Then
                 LightStatus.Text = "Lights On"
             ElseIf light = "B" Then
                 LightStatus.Text = "Lights Off"
-            End If
-        End If
 
+            End If
+
+        End If
     End Sub
 
     Private Sub OpenButton_Click(sender As Object, e As EventArgs) Handles OpenButton.Click
