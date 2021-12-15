@@ -14,7 +14,7 @@ toflag = 0
 setintflags 0x80, 0x80
 
 symbol emode = b9
-b9 = 0
+emode = 0
 
 
 
@@ -60,9 +60,10 @@ end if
 
 readadc 1, b1 'Read the thermistor
 'sertxd (#b1, cr, lf) 'for testing purposes
-serout c.6, t9600_8, ("T")
-serout c.6, t9600_8, (#b1)
+'serout c.6, t9600_8, ("T")
 
+'serout c.6, t9600_8, (#b1)
+gosub acUnit 
 'if hot  run air
 if b1 > 55 then
 	high cold
@@ -103,7 +104,7 @@ if b10 = "O" then
 	gosub open
 	high dlightA
 	high dlightB
-	low dlock
+	low dlock	
 else if b10 = "C" then
 	gosub closed
 	low dlightA
@@ -113,6 +114,10 @@ else if b10 = "E" then
 	gosub emergency
 	low dlock
 	emode = 1
+else if b10 = "B" then
+	gosub batsignal
+	low dlock
+	
 endif
 hserptr = 0
 hserinflag = 0
@@ -141,6 +146,34 @@ emergency:
 SEROUT lcd, n9600_8, (0x0C)
 serout lcd, n9600_8, (0x10,0X5A)
 serout lcd, n9600_8, ("EMERGENCY")
+return
+
+'subroutine for BIG Emergencies
+batsignal:
+serout lcd, n9600_8, (0x0C)
+serout lcd, n9600_8, (0x10, 0x46)
+serout lcd, n9600_8, (" /(_M_)` ")
+serout lcd, n9600_8, (0x10, 0x5A)
+serout lcd, n9600_8, ("|       |")
+serout lcd, n9600_8, (0x10, 0x6F)
+serout lcd, n9600_8, ("`/-V-`/")
+return 
+'subroutine to send a char over to vb in order to see temp changes
+acUnit:
+
+if b1 < 35 then
+	serout c.6, t9600_8, ("a") 'HEAT ON value 33
+elseif b1 >= 35 and b1 < 40 then
+	serout c.6, t9600_8, ("b") 'value 38 no change
+elseif b1 >= 40 and b1 < 45 then
+	serout c.6, t9600_8, ("c") 'value 43 unit not running
+elseif b1 >=45 and b1 < 50 then
+	serout c.6, t9600_8, ("d") 'value 48 unit not running
+elseif b1 >= 50 and b1 < 55 then
+	serout c.6, t9600_8, ("e") ' value 53 no change
+elseif b1 > 55 then
+	serout c.6, t9600_8, ("f") ' value = 58 heat on
+endif 
 return
 
 'Heartbeat interrupt

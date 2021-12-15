@@ -28,6 +28,7 @@ Partial Class Form1
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.TempBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LightStatus = New System.Windows.Forms.TextBox()
@@ -35,7 +36,7 @@ Partial Class Form1
         Me.OpenButton = New System.Windows.Forms.Button()
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.EButton = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.BatButton = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
@@ -51,40 +52,54 @@ Partial Class Form1
         Me.MallTemp.BackColor = System.Drawing.SystemColors.Control
         Me.MallTemp.Location = New System.Drawing.Point(491, 122)
         Me.MallTemp.Margin = New System.Windows.Forms.Padding(4)
-        Me.MallTemp.Maximum = 66
+        Me.MallTemp.Maximum = 60
         Me.MallTemp.Minimum = 25
         Me.MallTemp.Name = "MallTemp"
         Me.MallTemp.Size = New System.Drawing.Size(481, 98)
         Me.MallTemp.TabIndex = 0
-        Me.MallTemp.Value = 45
+        Me.MallTemp.Value = 25
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Aqua
-        Me.Panel1.Location = New System.Drawing.Point(475, 80)
+        Me.Panel1.Location = New System.Drawing.Point(475, 102)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(175, 176)
+        Me.Panel1.Size = New System.Drawing.Size(155, 138)
         Me.Panel1.TabIndex = 1
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Maroon
-        Me.Panel2.Location = New System.Drawing.Point(861, 80)
+        Me.Panel2.Location = New System.Drawing.Point(861, 102)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(128, 176)
+        Me.Panel2.Size = New System.Drawing.Size(128, 138)
         Me.Panel2.TabIndex = 2
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.DarkGray
+        Me.Panel3.Controls.Add(Me.TempBox)
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Location = New System.Drawing.Point(429, 36)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(603, 274)
         Me.Panel3.TabIndex = 2
+        '
+        'TempBox
+        '
+        Me.TempBox.BackColor = System.Drawing.Color.DarkGray
+        Me.TempBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TempBox.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TempBox.Location = New System.Drawing.Point(125, 193)
+        Me.TempBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.TempBox.Name = "TempBox"
+        Me.TempBox.ReadOnly = True
+        Me.TempBox.Size = New System.Drawing.Size(391, 74)
+        Me.TempBox.TabIndex = 2
+        Me.TempBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
@@ -164,16 +179,15 @@ Partial Class Form1
         Me.EButton.Text = "EMERGENCY"
         Me.EButton.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'BatButton
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(239, 246)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(391, 105)
-        Me.TextBox1.TabIndex = 2
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.BatButton.BackColor = System.Drawing.Color.Red
+        Me.BatButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BatButton.Location = New System.Drawing.Point(1019, 512)
+        Me.BatButton.Name = "BatButton"
+        Me.BatButton.Size = New System.Drawing.Size(36, 30)
+        Me.BatButton.TabIndex = 7
+        Me.BatButton.UseVisualStyleBackColor = False
         '
         'Form1
         '
@@ -181,7 +195,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1067, 554)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.BatButton)
         Me.Controls.Add(Me.EButton)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.OpenButton)
@@ -198,7 +212,6 @@ Partial Class Form1
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -214,5 +227,6 @@ Partial Class Form1
     Friend WithEvents OpenButton As Button
     Friend WithEvents CloseButton As Button
     Friend WithEvents EButton As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TempBox As TextBox
+    Friend WithEvents BatButton As Button
 End Class

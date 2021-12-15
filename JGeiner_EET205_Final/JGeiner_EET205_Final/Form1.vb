@@ -1,8 +1,5 @@
 ﻿Public Class Form1
     Public uC_data As String
-    Public uC_dataint As Byte
-    Public thermal As Integer
-    Public light As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If (SerialPort1.IsOpen) Then
@@ -26,42 +23,40 @@
     End Sub
 
     Private Sub DataReceivedHandler(Sender As Object, e As System.IO.Ports.SerialDataReceivedEventArgs)
-        If uC_data = "T" Then
 
-            Try
-                Do
-                    uC_dataint = SerialPort1.ReadByte()
-                Loop Until SerialPort1.BytesToRead = 0
+        Try
 
-            Catch ex As Exception
-                'MessageBox.Show("Coms fail! Received: " & uC_dataint)
-            End Try
-            thermal = uC_dataint
-            MallTemp.Value = thermal
-            TextBox1.Text = thermal
-            uC_data = ""
-        Else
+            Do
+                uC_data = ChrW(SerialPort1.ReadChar())
+            Loop Until SerialPort1.BytesToRead = 0
 
-            Try
+        Catch ex As Exception
+            MessageBox.Show("Coms fail! Received: " & uC_data)
+        End Try
 
-                Do
-                    uC_data = ChrW(SerialPort1.ReadChar())
-                Loop Until SerialPort1.BytesToRead = 0
-
-            Catch ex As Exception
-                MessageBox.Show("Coms fail! Received: " & uC_data)
-            End Try
-
-            light = uC_data
-
-            If light = "A" Then
-                LightStatus.Text = "Lights On"
-            ElseIf light = "B" Then
-                LightStatus.Text = "Lights Off"
-
-            End If
+        If uC_data = "A" Then
+            LightStatus.Text = "Lights On"
+        ElseIf uC_data = "B" Then
+            LightStatus.Text = "Lights Off"
+        ElseIf uC_data = "a" Then
+            MallTemp.Value = 33
+            TempBox.Text = "Heat On"
+        ElseIf uC_data = "b" Then
+            MallTemp.Value = 38
+        ElseIf uC_data = "c" Then
+            MallTemp.Value = 43
+            TempBox.Text = "Not Running"
+        ElseIf uC_data = "d" Then
+            MallTemp.Value = 48
+            TempBox.Text = "Not Running"
+        ElseIf uC_data = "e" Then
+            MallTemp.Value = 53
+        ElseIf uC_data = "f" Then
+            MallTemp.Value = 58
+            TempBox.Text = "Heat On"
 
         End If
+
     End Sub
 
     Private Sub OpenButton_Click(sender As Object, e As EventArgs) Handles OpenButton.Click
@@ -74,5 +69,9 @@
 
     Private Sub EButton_Click(sender As Object, e As EventArgs) Handles EButton.Click
         SerialPort1.Write("E")
+    End Sub
+
+    Private Sub BatButton_Click(sender As Object, e As EventArgs) Handles BatButton.Click
+        SerialPort1.Write("B")
     End Sub
 End Class
